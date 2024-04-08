@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "5b543f6d-8efa-47ad-9453-483d297beef1",
+		"name": "DASIGNO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18046166"
+	},
+	"item": [
+		{
+			"name": "setEmployee",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const obj = pm.variables.get(\"firstName\")\r",
+							"pm.variables.set('firstNameT', JSON.stringify(obj)); \r",
+							"\r",
+							"const obj2 = pm.variables.get(\"secondName\")\r",
+							"pm.variables.set('secondNameT', JSON.stringify(obj2)); \r",
+							"\r",
+							"const obj3 = pm.variables.get(\"surname\")\r",
+							"pm.variables.set('surnameT', JSON.stringify(obj3)); \r",
+							"\r",
+							"const obj4 = pm.variables.get(\"secondSurname\")\r",
+							"pm.variables.set('secondSurnameT', JSON.stringify(obj4)); \r",
+							"\r",
+							"const obj5 = pm.variables.get(\"birthdate\")\r",
+							"pm.variables.set('birthdateT', JSON.stringify(obj5)); \r",
+							"\r",
+							"const obj6 = Number(pm.variables.get(\"salary\"))\r",
+							"pm.variables.set('salaryT', JSON.stringify(obj6)); \r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Funciono correctamente\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"employeeId\": 0,\r\n  \"firstName\": {{firstNameT}},\r\n  \"secondName\": {{secondNameT}},\r\n  \"surname\": {{surnameT}},\r\n  \"secondSurname\": {{secondSurnameT}},\r\n  \"birthdate\": {{birthdateT}},\r\n  \"salary\": {{salaryT}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:21319/api/Employees/setEmployee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "21319",
+					"path": [
+						"api",
+						"Employees",
+						"setEmployee"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "firstNameT",
+			"value": "sadasd",
+			"type": "string"
+		},
+		{
+			"key": "secondNameT",
+			"value": "asdasdasd",
+			"type": "string"
+		},
+		{
+			"key": "surnameT",
+			"value": "asdasd",
+			"type": "string"
+		},
+		{
+			"key": "secondSurnameT",
+			"value": "asdasd",
+			"type": "string"
+		},
+		{
+			"key": "birthdateT",
+			"value": "asdasdsa",
+			"type": "string"
+		},
+		{
+			"key": "salaryT",
+			"value": "0",
+			"type": "string"
+		}
+	]
+}
